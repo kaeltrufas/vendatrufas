@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Consultar Saldo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+      max-width: 500px;
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+      color: #2e7d32;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #2e7d32;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    button:hover {
+      background-color: #1b5e20;
+    }
+    #resultado {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #dcedc8;
+      border-left: 5px solid #2e7d32;
+    }
+    .pix-banner {
+      margin-top: 30px;
+      background-color: #c8e6c9;
+      padding: 15px;
+      border-left: 5px solid #388e3c;
+    }
+  </style>
+</head>
+<body>
+  <h1>Consultar Saldo</h1>
+
+  <label for="celular">Celular:</label>
+  <input type="text" id="celular" placeholder="Digite seu número com DDD" />
+
+  <label for="mes">Selecione o mês:</label>
+  <select id="mes">
+    <option value="janeiro">Janeiro</option>
+    <option value="fevereiro">Fevereiro</option>
+    <option value="março">Março</option>
+    <option value="abril">Abril</option>
+    <option value="maio">Maio</option>
+    <option value="junho">Junho</option>
+    <option value="julho">Julho</option>
+    <option value="agosto">Agosto</option>
+    <option value="setembro">Setembro</option>
+    <option value="outubro">Outubro</option>
+    <option value="novembro" selected>Novembro</option>
+    <option value="dezembro">Dezembro</option>
+  </select>
+
+  <button onclick="consultarSaldo()">Consultar</button>
+
+  <div id="resultado"></div>
+
+  <div class="pix-banner">
+    <strong>Chave Pix:</strong> 21969109380<br />
+    Após efetuar o pagamento, pode enviar o comprovante para o mesmo número.<br />
+    <a href="https://wa.me/5521969109380" target="_blank">Clique aqui para enviar o comprovante</a>
+  </div>
+
+  <script>
+    async function consultarSaldo() {
+      const celular = document.getElementById("celular").value.trim();
+      const mes = document.getElementById("mes").value;
+
+      if (!celular) {
+        alert("Por favor, digite o número de celular.");
+        return;
+      }
+
+      const url = `https://script.google.com/macros/s/AKfycbw3fkAdv_xKEhfVOCSjNkrmDRNCJ85WzSj0L-_c8LbcMppB67m6kBvvjNodvF3zwW0t/exec?celular=${celular}&mes=${mes}`;
+
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+        document.getElementById("resultado").innerText = data.mensagem || data.erro;
+      } catch (error) {
+        document.getElementById("resultado").innerText = "Erro ao consultar saldo.";
+      }
+    }
+  </script>
+</body>
+</html>
