@@ -85,26 +85,28 @@
   </div>
 
   <script>
-    async function consultarSaldo() {
-      const celular = document.getElementById("celular").value.trim();
-      const mes = document.getElementById("mes").value;
+  function consultarSaldo() {
+    const celular = document.getElementById("celular").value.trim();
+    const mes = document.getElementById("mes").value;
 
-      if (!celular) {
-        alert("Por favor, digite o número de celular.");
-        return;
-      }
-
-      const url = `https://script.google.com/macros/s/AKfycbzqgharxb41j5nMO0pn0UR2IfScKex7GmtgwBMPtehSTYCQZ9dX6V09iefhvs9WseHhCw/exec?celular=${celular}&mes=${mes}`;
-
-      try {
-        const response = await fetch(url);
-        const data = await response.json();
-        document.getElementById("resultado").innerText = data.mensagem || data.erro;
-      } catch (error) {
-        document.getElementById("resultado").innerText = "Erro ao consultar saldo.";
-      }
+    if (!celular) {
+      alert("Por favor, digite o número de celular.");
+      return;
     }
-  </script>
+
+    const callbackName = "exibirResultado";
+    const url = `https://script.google.com/macros/s/AKfycb.../exec?celular=${encodeURIComponent(celular)}&mes=${encodeURIComponent(mes)}&callback=${callbackName}`;
+
+    const script = document.createElement("script");
+    script.src = url;
+    document.body.appendChild(script);
+  }
+
+  function exibirResultado(data) {
+    document.getElementById("resultado").innerText = data.mensagem || data.erro;
+  }
+</script>
 </body>
 
 </html>
+
