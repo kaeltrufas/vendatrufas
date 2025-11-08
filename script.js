@@ -16,7 +16,7 @@ async function consultar() {
     document.getElementById('result').innerHTML = "Consultando...";
 
     // Construir URL de consulta
-    const url = `https://script.google.com/macros/s/AKfycbw3fkAdv_xKEhfVOCSjNkrmDRNCJ85WzSj0L-_c8LbcMppB67m6kBvvjNodvF3zwW0t/exec?celular=${celular}&mes=${mes}`;
+    const url = `https://script.google.com/macros/s/AKfycbzqgharxb41j5nMO0pn0UR2IfScKex7GmtgwBMPtehSTYCQZ9dX6V09iefhvs9WseHhCw/exec?celular=${celular}&mes=${mes}`;
 
     try {
         // Fazer a consulta na API
