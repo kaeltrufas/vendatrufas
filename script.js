@@ -5,6 +5,11 @@ async function consultar() {
   const celular = document.getElementById('celular').value.trim();
   const mes = document.getElementById('mes').value.trim().toLowerCase();
 
+  if (!mes) {
+  document.getElementById('error').innerHTML = "Por favor, selecione um mês.";
+  return;
+  }
+
   const celularRegex = /^[0-9]{10,11}$/;
   const mesesValidos = ["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"];
 
