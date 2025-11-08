@@ -30,7 +30,7 @@ async function consultar() {
 
   document.getElementById('loading').style.display = "block";
 
-  const url = `https://script.google.com/macros/s/AKfycbzqgharxb41j5nMO0pn0UR2IfScKex7GmtgwBMPtehSTYCQZ9dX6V09iefhvs9WseHhCw/exec?celular=${celular}&mes=${mes}`;
+  const url = `https://script.google.com/macros/s/AKfycbxpa-ZCZxlrMUjiTKteQ0ETmxnlZr3iDpTH-S7TOv5mRlcXiiXz9ywP0z-MI34-R5YguA/exec?celular=${celular}&mes=${mes}`;
 
   try {
     const response = await fetch(url);
