@@ -90,3 +90,12 @@ button:hover {
 .comprovante:hover {
   background-color: #1da851;
 }
+
+select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+}
