@@ -1,35 +1,32 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consulta de Vendas</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
-  </head>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Consulta de Vendas</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
 <body>
+  <h1>Consultar Saldo</h1>
+  <div class="container">
+    <label for="celular">Celular:</label>
+    <input type="text" id="celular" placeholder="Digite seu Nº de celular (ex.: 21911223344)" />
 
-    <h1>Consultar Saldo</h1>
-    <div class="container">
-        <label for="celular">Celular:</label>
-        <input type="text" id="celular" placeholder="Digite seu Nº de celular(ex.:21911223344)"/>
-        
-        <label for="mes">Mês:</label>
-        <input type="text" id="mes" placeholder="Digite o mês (ex: novembro)" />
-        
-        <button onclick="consultar()">Consultar</button>
+    <label for="mes">Mês:</label>
+    <input type="text" id="mes" placeholder="Digite o mês (ex: novembro)" />
 
-        <div id="result" class="result"></div>
-        <div id="error" class="error"></div>
-    </div>
+    <button onclick="consultar()">Consultar</button>
 
-    <div class="pix-banner">
-        <p>Chave Pix: <strong>21982227469</strong></p>
-        <p>Após efeturar o pagamento, peço que envie o comprovante para o mesmo número.</p>
-        <a href="https://wa.me/+5521982227469" target="_blank" class="comprovante">Clique aqui para enviar o comprovante.</a>
-    </div>
+    <div id="loading" class="loading" style="display: none;">🔄 Consultando...</div>
+    <div id="result" class="result"></div>
+    <div id="error" class="error"></div>
+  </div>
 
-    
+  <div class="pix-banner">
+    <p>Chave Pix: <strong>21982227469</strong></p>
+    <p>Após efetuar o pagamento, envie o comprovante para o mesmo número.</p>
+    <a href="https://wa.me/+5521982227469" target="_blank" class="comprovante">Clique aqui para enviar o comprovante.</a>
+  </div>
 </body>
 </html>
