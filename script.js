@@ -30,7 +30,9 @@ async function consultar() {
 
   document.getElementById('loading').style.display = "block";
 
-  const url = `https://script.google.com/macros/s/AKfycbxpa-ZCZxlrMUjiTKteQ0ETmxnlZr3iDpTH-S7TOv5mRlcXiiXz9ywP0z-MI34-R5YguA/exec?celular=${celular}&mes=${mes}`;
+  // Use a função Netlify como proxy para evitar CORS
+  // A função está em netlify/functions/proxy.js e repassa a requisição ao Apps Script
+  const url = `/.netlify/functions/proxy?celular=${celular}&mes=${mes}`;
 
   try {
     const response = await fetch(url);
